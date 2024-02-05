@@ -15,9 +15,10 @@ exports.addPost = (req, res) => {
     postModel.create({ title, content, author}, (err, post) => {
       if (err) {
         req.flash('error_msg', 'Could not create post. Please try again.');
-        res.redirect('/posts/add');
+        // res.redirect('/posts/add');
       } else {
-        res.redirect('/posts');
+        res.json(post);
+        // res.redirect('/posts');
       }
     });
   } else {
